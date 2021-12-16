@@ -9,7 +9,7 @@ class LikesController < ApplicationController
       render json: {
           id: like.id,
           email: current_user.email,
-          message: "成功しました"
+          message: "成功しました",
       },
              status: 200
     else
@@ -34,8 +34,6 @@ class LikesController < ApplicationController
           errors: like.errors.messages
       },status: 400
     end
-
   end
-
-
 end
+
