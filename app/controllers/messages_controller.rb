@@ -2,7 +2,8 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!, only: [:index,:show]
 
   def index
-    messages = Message.all
+    # userとlikesに紐づき、かつ、likesに紐づくuserの取得
+    messages = Message.includes(:user,[likes: :user])
     messages_array = messages.map do |message|
       {
           id: message.id,
